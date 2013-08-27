@@ -1,9 +1,6 @@
 function somethingScanned(locationId){
-    alert(locationId); 
+    alert(locationId);
 }
-
-
-
 
 var app = {
     // Application Constructor
@@ -43,7 +40,7 @@ var app = {
 
             scanner.scan( function (result) { 
 
-<<<<<<< HEAD
+
                 // alert("We got a barcode\n" + 
                 // "Result: " + result.text + "\n" + 
                 // "Format: " + result.format + "\n" + 
@@ -51,15 +48,8 @@ var app = {
 
                 somethingScanned(result.text);
 
-
-
-=======
-                foundLocation(result.text)
-
                 //alert("We got a barcode\n" + "Result: " + result.text + "\n" + "Format: " + result.format + "\n" + "Cancelled: " + result.cancelled);  
 
-        
->>>>>>> 636215d2d8d0efe32f31e4b14b0931cde2033811
                 document.getElementById("info").innerHTML = result.text;
                 console.log(result);
                 /*
@@ -77,7 +67,3 @@ var app = {
     }
 
 };
-
-foundLocation(locationID){
-    alert(locationID);
-}
