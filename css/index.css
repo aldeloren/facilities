@@ -49,7 +49,6 @@ table {
     border-spacing: 0;
 }
 
-
 * {
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
@@ -57,7 +56,7 @@ table {
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
 }
 
-body {
+html,body {
     font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
     font-size:20px;
     height:100%;
@@ -67,23 +66,6 @@ body {
     padding: 0;
     background: #222;
 }
-
-/* Portrait layout (default) */
-.app {
-    background:url(../img/logo.png) no-repeat center top; /* 170px x 200px */
-    position:absolute;             /* position in the center of the screen */
-    left:50%;
-    top:50%;
-    height:50px;                   /* text area height */
-    width:225px;                   /* text area width */
-    text-align:center;
-    padding:180px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
-    margin:-115px 0px 0px -112px;  /* offset vertical: half of image height and text area height */
-                                   /* offset horizontal: half of text area width */
-}
-
-
-
 
 @keyframes fade {
     from { opacity: 1.0; }
@@ -101,9 +83,6 @@ body {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
 }
-
-
-
 #homelogo {
     font-size: 200%;
     line-height: 1em;
@@ -113,3 +92,20 @@ body {
     background: #003366;
     border-top:#FD7D00 2px solid
 }
+.app p{
+    width: 100%;
+    text-align: center;
+    padding: 30px 0;
+}
+
+#scan{
+    text-align: center;
+    color: white;
+    font-size: 1.2em;
+}
+
+
+
+
+
+
