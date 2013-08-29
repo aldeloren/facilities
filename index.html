@@ -47,7 +47,7 @@
         <script>
         function getLocationInfo(loc_id){
             var coords = '';
-            location_url = "/get_location_info.php?loc_id=" + loc_id;
+            location_url = "get_location_info.php?loc_id=" + loc_id;
             $.getJSON(location_url, function(data) {
                 $.each(data, function(i,item){
                     bld_name = item.bld_name;
