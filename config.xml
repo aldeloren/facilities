@@ -3,14 +3,14 @@
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "com.phonegap.uf-facilities"
         version   = "2.0.0">
-    <name>UF Facilities</name>
+    <name>facilities</name>
 
     <description>
-        Use this app to report problems with PPD fcilities around campus.
+        Use this app to report problems with fcilities around campus.
     </description>
 
-    <author href="http://webservices.ufl.edu" email="webservices@ufl.edu">
-        Anthony DeLorenzo, Web Services, University of Florida
+    <author href="aldev.co" email="anthony@aldev.co">
+        Anthony DeLorenzo
     </author>
 
     <gap:plugin name="com.phonegap.plugins.barcodescanner"/>
