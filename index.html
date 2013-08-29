@@ -4,21 +4,102 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <link rel="stylesheet" type="text/css" href="css/index.css" />
-        <title>UF Facilities</title>
+        <link rel="stylesheet" type="text/css" href="css/fonts.css" />
+        <title>Facilities</title>
     </head>
     <body>
-        <h1 id="homelogo"><img src="http://test.m.ufl.edu/modules/home/images/logo-home.png" width="135" height="25" alt="UF Mobile"></h1>
+        <h1 id="homelogo">Facilities</h1>
         <div class="app">
         
-            <p id="scan-container"><a href="#" class="topcoat-button" id="scan">SCAN SOMETHING</a></p>
+            <a href="#" class="topcoat-button" id="scan">
+                <div class="flipbox-container">
+                    <div id="scan-container" class="big-button">
+                        <div class="inner">
+                            <p>Tap to Scan</p>
+                            <p class="subtitle">(Report a problem)</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <div class="separator">
+                <p>-or-</p>
+            </div>
+
+            <a href="#" class="topcoat-button" id="scan">
+                <div id="facilities-container" class="big-button">
+                    <div class="inner">
+                        <p>Find a Facility</p>
+                        <p class="subtitle">()</p>
+                    </div>
+                </div>
+            </a>
             <p id="info"></p>
         </div>
         <script type="text/javascript" src="phonegap.js"></script>
         <script type="text/javascript" src="barcodescanner.js"></script>
         <script type="text/javascript" src="childbrowser.js"></script>
+        <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+        <script type="text/javascript" src="js/jquery.flippy.min.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
             app.initialize();
         </script>
+        <script>
+        function getLocationInfo(loc_id){
+            var coords = '';
+            location_url = "/get_location_info.php?loc_id=" + loc_id;
+            $.getJSON(location_url, function(data) {
+                $.each(data, function(i,item){
+                    bld_name = item.bld_name;
+                    coords = item.coords;
+                    floorNumber = item.floor;
+                    if (floorNumber == 0){
+                        floor = "Ground";
+                    }else if (floorNumber == 1){
+                        floor = "1st";
+                    }else if (floorNumber == 2){
+                        floor = "2nd";
+                    }else if (floorNumber == 3){
+                        floor = "3rd";
+                    }else if (floorNumber < 0){
+                        floor = "Basement"
+                    }else{
+                        floor = floorNumber + "th"
+                    }
+                    if (item.gender == 0){
+                        gender = "women's"
+                    }else{
+                        gender = "men's"
+                    }
+                    fac_type = item.fac_type;
+
+                    console.log(bld_name,coords,floor,gender,fac_type)
+                });
+                console.log(coords)
+                coordsMap = "<img src='http://maps.google.com/maps/api/staticmap?center=" + coords + "&amp;markers=color:blue|" + coords + "&amp;zoom=14&amp;size=250x250&amp;sensor=false'>"
+                flipScanner(coordsMap,bld_name,floor,gender,fac_type);
+            });
+            
+        }
+        function flipScanner(coordsMap,bld_name,floor,gender,fac_type){
+            content =  "<div class='coords-map'>" + coordsMap + "</div>";
+            content += "<p class='question'>What is wrong with the " + fac_type + " in " + bld_name + " on the  " + floor + " floor? " + "</p>";
+            $("#scan-container").flippy({
+                color_target: "#34495e",
+                duration: "700",
+                light: "0",
+                verso: content,
+                onFinish: function(){
+                    hideContent("facilities");
+                }
+             });
+        }
+        function hideContent(buttonType){
+            if (buttonType == "facilities"){
+                $("#facilities-container, .separator").hide();
+            }
+        }
+        </script>
+        
     </body>
 </html>

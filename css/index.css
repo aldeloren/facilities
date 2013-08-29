@@ -49,15 +49,10 @@ table {
     border-spacing: 0;
 }
 
-* {
-    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
-    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
-    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
-    -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
-}
 
 html,body {
-    font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+    font-family: 'Raleway', sans-serif;
+    font-weight:100;
     font-size:20px;
     height:100%;
     text-transform:uppercase;
@@ -88,16 +83,56 @@ html,body {
     line-height: 1em;
     text-align: center;
     width: 100%;
-    padding-bottom:5px;
+    padding:10px 0;
     background: #003366;
-    border-top:#FD7D00 2px solid
+    border-top:green 2px solid
 }
-.app p{
-    width: 100%;
+.app{
+    width:100%;
+    height:100%;
+}
+.app a{
+    text-decoration: none;
+}
+.big-button{
+    position: relative;
+    min-height:150px;
+    width:auto;
+    margin:20px;
+    border-radius: 40px;
+    background: #34495e;
+    border: 4px solid #2c3e50;
+    font-size:1.4em;
+    overflow: auto;
+}
+.big-button .inner{
+    height:60px;
+    padding-top:48px;
+}
+.big-button .question{
+    font-size: .6em;
+    padding:10px;
+    width:300px;
+    text-align: left;
+    text-transform: none;
+}
+.button p{
     text-align: center;
-    padding: 30px 0;
 }
-
+.subtitle{
+    font-size:.6em;
+    color:#e8e8e8;
+}
+.coords-map img{
+    width:100%;
+    height:100%;
+}
+.separator{
+    height:30px;
+    text-align: center;
+    color:#fff;
+    line-height: 30px;
+}
 #scan{
     text-align: center;
     color: white;
