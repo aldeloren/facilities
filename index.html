@@ -78,6 +78,7 @@
                 console.log(coords)
                 coordsMap = "<img src='http://maps.google.com/maps/api/staticmap?center=" + coords + "&amp;markers=color:blue|" + coords + "&amp;zoom=14&amp;size=250x250&amp;sensor=false'>"
                 flipScanner(coordsMap,bld_name,floor,gender,fac_type);
+                alert(coordsMap + 'getLocationInfo fired')
             });
             
         }
@@ -93,6 +94,7 @@
                     hideContent("facilities");
                 }
              });
+            alert('flippy fired')
         }
         function hideContent(buttonType){
             if (buttonType == "facilities"){

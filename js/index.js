@@ -37,7 +37,7 @@ var app = {
             scanner.scan( function (result) {  
                 loc_id = result.text;
                 alert(loc_id)
-                //getLocationInfo(loc_id);
+                getLocationInfo(loc_id);
                 /*
                 if (args.format == "QR_CODE") {
                     window.plugins.childBrowser.showWebPage(args.text, { showLocationBar: false });
