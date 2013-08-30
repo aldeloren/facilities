@@ -36,6 +36,7 @@ var app = {
 
             scanner.scan( function (result) {  
                 loc_id = result.text;
+                alert('about to run function' + loc_id)
                 getLocationInfo(loc_id);
                 /*
                 if (args.format == "QR_CODE") {
